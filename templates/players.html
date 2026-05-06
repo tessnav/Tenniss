@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Žebříček Hráčů</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Jméno</th>
+                <th>Výhry</th>
+                <th>Skóre +</th>
+                <th>Skóre -</th>
+                <th>Rozdíl</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#players}}
+            <tr>
+                <td><strong>{{name}}</strong></td>
+                <td>{{wins}}</td>
+                <td>{{points_plus}}</td>
+                <td>{{points_minus}}</td>
+                <td style="color: var(--primary)">{{score_diff}}</td>
+            </tr>
+            {{/players}}
+            </tbody>
+        </table>
+    </div>
+</div>

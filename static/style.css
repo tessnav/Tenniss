@@ -1,0 +1,87 @@
+:root {
+    --primary: #d4ff00; /* Tenisová žlutá */
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --text: #ffffff;
+    --text-dim: #a0a0a0;
+    --accent: #2c2c2c;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+/* Navigace */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--accent);
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+    background: var(--accent);
+    flex: 0 1 40%;
+    text-align: center;
+}
+
+.nav-btn:active { background: var(--primary); color: black; }
+
+/* Obsah */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+h1 { color: var(--primary); font-size: 2.5rem; }
+
+/* Tabulky - Responzivita */
+.table-wrapper {
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Aby se na mobilu dalo skrolovat vpravo */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--accent);
+}
+
+th { background: var(--accent); color: var(--primary); text-transform: uppercase; font-size: 0.8rem; }
+
+.score { font-weight: bold; color: var(--primary); text-align: center; }
+
+/* Media Query pro Desktop */
+@media (min-width: 768px) {
+    .nav-btn:hover { background: var(--primary); color: black; }
+    h1 { font-size: 4rem; }
+}
