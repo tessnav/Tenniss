@@ -46,11 +46,83 @@ int main()
 
     CROW_ROUTE(app, "/api/results").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
 
-            // --- 1. Zde zpracuješ request a zapíšeš výsledky do SQLite ---
+            // 1. Zpracování JSONu z frontendu
+            auto body = nlohmann::json::parse(req.body, nullptr, false);
+            if (body.is_discarded()) {
+                return crow::response(400, "Neplatny JSON format");
+            }
+
+            // 2. Připojení k databázi
+            sqlite3* db;
+            if (sqlite3_open("turnaj.db", &db) != SQLITE_OK) {
+                return crow::response(500, "Nelze otevrit databazi");
+            }
+
+            // 3. Start bezpečné transakce
+            sqlite3_exec(db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
+
+            // --- A) Vložení záznamu do tabulky MATCHES ---
+            const char* insert_match_sql =
+                "INSERT INTO matches (p1_a_id, p2_a_id, p1_b_id, p2_b_id, score_a, score_b) "
+                "VALUES (?, ?, ?, ?, ?, ?);";
+
+            sqlite3_stmt* stmt;
+            sqlite3_prepare_v2(db, insert_match_sql, -1, &stmt, nullptr);
+
+            // Nabindování hodnot z JSONu do SQL dotazu (prevence proti SQL injection)
+            sqlite3_bind_int(stmt, 1, body["p1_a_id"]);
+            sqlite3_bind_int(stmt, 2, body["p2_a_id"]);
+            sqlite3_bind_int(stmt, 3, body["p1_b_id"]);
+            sqlite3_bind_int(stmt, 4, body["p2_b_id"]);
+            sqlite3_bind_int(stmt, 5, body["score_a"]);
+            sqlite3_bind_int(stmt, 6, body["score_b"]);
+
+            sqlite3_step(stmt);
+            sqlite3_finalize(stmt); // Vždy musíme uvolnit paměť statementu!
+
+            // --- B) Výpočet bodů za výhru ---
+            int score_a = body["score_a"];
+            int score_b = body["score_b"];
+            int points_a = (score_a > score_b) ? 1 : 0;
+            int points_b = (score_b > score_a) ? 1 : 0;
+
+            // --- C) Pomocná lambda pro update hráče ---
+            // Tohle udrží kód krásně čitelný
+            auto update_player = [&](int player_id, int match_points, int games_won, int games_lost) {
+                const char* update_sql =
+                    "UPDATE players SET "
+                    "matches_won = matches_won + ?, "
+                    "games_won = games_won + ?, "
+                    "games_lost = games_lost + ? "
+                    "WHERE player_id = ?;";
+
+                sqlite3_stmt* update_stmt;
+                sqlite3_prepare_v2(db, update_sql, -1, &update_stmt, nullptr);
+                sqlite3_bind_int(update_stmt, 1, match_points);
+                sqlite3_bind_int(update_stmt, 2, games_won);
+                sqlite3_bind_int(update_stmt, 3, games_lost);
+                sqlite3_bind_int(update_stmt, 4, player_id);
+
+                sqlite3_step(update_stmt);
+                sqlite3_finalize(update_stmt);
+            };
+
+            // --- D) Update všech 4 hráčů ---
+            update_player(body["p1_a_id"], points_a, score_a, score_b);
+            update_player(body["p2_a_id"], points_a, score_a, score_b);
+            update_player(body["p1_b_id"], points_b, score_b, score_a);
+            update_player(body["p2_b_id"], points_b, score_b, score_a);
+
+            // 4. Potvrzení změn a zavření DB
+            sqlite3_exec(db, "COMMIT;", nullptr, nullptr, nullptr);
+            sqlite3_close(db);
+
+            std::cout << "Zapas zapsan do DB!" << std::endl;
+
 
             // --- 2. Zde vytáhneš updatované hráče z DB do vektorů ---
-            std::vector<Player> teamA = /* ... */;
-            std::vector<Player> teamB = /* ... */;
+            std::vector<Player> teamA; //= /* ... */
+            std::vector<Player> teamB; //= /* ... */
 
             // --- 3. TADY definuješ komparátor a provedeš řazení ---
             auto swiss_comparator = [](const Player& a, const Player& b) {

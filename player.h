@@ -1,7 +1,7 @@
 //
 // Created by 004ha on 06.05.2026.
 //
-
+#define _WIN32_WINNT 0x0A00 // Přidej toto jako první řádek!
 #ifndef TENNISS_PLAYER_H
 #define TENNISS_PLAYER_H
 
@@ -44,7 +44,41 @@ public:
 
     // INTRUSIVE makro: Musí být uvnitř třídy (ideálně na konci v public nebo private sekci)
     // Stará se o obousměrný překlad: JSON <-> C++ objekt
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Player, player_id, name, elo, matches_won, games_won, games_lost, team_id)
+    // --- Manuální C++ JSON Serializace ---
+
+    // Převod z C++ do JSONu (odesílání na frontend)
+    friend void to_json(nlohmann::json& j, const Player& p) {
+        j = nlohmann::json{
+                {"player_id", p.player_id},
+                {"name", p.name},
+                {"matches_won", p.matches_won},
+                {"games_won", p.games_won},
+                {"games_lost", p.games_lost},
+                {"team_id", p.team_id}
+        };
+        // Ošetření prázdného ELO
+        if (p.elo.has_value()) {
+            j["elo"] = p.elo.value();
+        } else {
+            j["elo"] = nullptr;
+        }
+    }
+
+    // Převod z JSONu do C++ (přijímání dat)
+    friend void from_json(const nlohmann::json& j, Player& p) {
+        j.at("player_id").get_to(p.player_id);
+        j.at("name").get_to(p.name);
+        j.at("matches_won").get_to(p.matches_won);
+        j.at("games_won").get_to(p.games_won);
+        j.at("games_lost").get_to(p.games_lost);
+        j.at("team_id").get_to(p.team_id);
+
+        if (j.contains("elo") && !j["elo"].is_null()) {
+            p.elo = j["elo"].get<int>();
+        } else {
+            p.elo = std::nullopt;
+        }
+    }
 };
 
 #endif //TENNISS_PLAYER_H

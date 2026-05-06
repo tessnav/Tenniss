@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\Tenniss.dir\\player.cpp.obj",
+            "outputs": [
+                "C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\Tenniss.dir\\player.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}
