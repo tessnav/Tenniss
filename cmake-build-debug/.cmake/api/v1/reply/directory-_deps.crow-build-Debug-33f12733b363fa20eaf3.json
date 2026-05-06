@@ -1,0 +1,87 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"cmake-build-debug/_deps/crow-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 143,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 147,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 159,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "cmake-build-debug/_deps/crow-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Crow",
+			"exportName" : "CrowTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "Crow::@2c1e7a9ae0c1ce7a4691",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/crow-build/CMakeFiles/Export/39b93a7c549578a74ae8b70f67840a75/CrowTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Crow",
+			"paths" : 
+			[
+				"cmake-build-debug/_deps/crow-src/cmake/Findasio.cmake",
+				"cmake-build-debug/_deps/crow-build/CrowConfig.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/crow-build",
+		"source" : "cmake-build-debug/_deps/crow-src"
+	}
+}

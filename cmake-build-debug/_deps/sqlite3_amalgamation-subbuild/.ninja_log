@@ -1,0 +1,21 @@
+# ninja log v6
+3	71	7997996954259267	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-mkdir	5d703eaca7435a6f
+3	71	7997996954259267	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-mkdir	5d703eaca7435a6f
+72	10938	7997997062967301	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-download	275e5fadb216db3b
+10997	11059	7997997064167611	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-patch	3cb1fb497f0b1db5
+72	10938	7997997062967301	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-download	275e5fadb216db3b
+10938	10996	7997997063541765	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-update	69611213e9dcf69c
+11287	11355	7997997067141007	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-done	28ed999868d6187d
+10997	11059	7997997064167611	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-patch	3cb1fb497f0b1db5
+10938	10996	7997997063541765	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-update	69611213e9dcf69c
+11059	11120	7997997064763265	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-configure	796c216601d292c1
+11287	11355	7997997067141007	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-done	28ed999868d6187d
+11059	11120	7997997064763265	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-configure	796c216601d292c1
+11120	11186	7997997065371919	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-build	f8981ae5d2488006
+11120	11186	7997997065371919	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-build	f8981ae5d2488006
+11186	11238	7997997065972055	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-install	bb1dd98823a21d18
+11186	11238	7997997065972055	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-install	bb1dd98823a21d18
+11238	11286	7997997066454734	sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-test	5632dcc8d07b1972
+11238	11286	7997997066454734	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/sqlite3_amalgamation-populate-prefix/src/sqlite3_amalgamation-populate-stamp/sqlite3_amalgamation-populate-test	5632dcc8d07b1972
+11287	11355	7997997067141007	CMakeFiles/sqlite3_amalgamation-populate-complete	28ed999868d6187d
+11287	11355	7997997067141007	C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-subbuild/CMakeFiles/sqlite3_amalgamation-populate-complete	28ed999868d6187d

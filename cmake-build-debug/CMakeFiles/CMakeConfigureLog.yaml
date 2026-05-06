@@ -1,0 +1,337 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - ARM64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.43.34808/bin/Hostarm64/arm64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.43.34808 for ARM64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.43.34808.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/4.0.2/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1322 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Note: including file: C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ch6y85"
+      binary: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ch6y85"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:ARM64"
+      VCPKG_INSTALLED_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "arm64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ch6y85'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -v cmTC_e4c98
+        [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_e4c98.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_e4c98.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_e4c98.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_e4c98.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_e4c98.exe /implib:cmTC_e4c98.lib /pdb:cmTC_e4c98.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/PROGRA~1/MICROS~4/2022/COMMUN~1/VC/Tools/MSVC/1443~1.348/bin/HOSTAR~1/arm64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/PROGRA~1/MICROS~4/2022/COMMUN~1/VC/Tools/MSVC/1443~1.348/bin/HOSTAR~1/arm64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.43.34808.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:99 (check_cxx_source_compiles)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/cmake/Findasio.cmake:17 (find_package)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/CMakeLists.txt:74 (find_package)"
+    directories:
+      source: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-g8hdrz"
+      binary: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-g8hdrz"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:ARM64"
+      CMAKE_MODULE_PATH: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/crow-src/cmake"
+      VCPKG_INSTALLED_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "arm64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-g8hdrz'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -v cmTC_06b69
+        [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo /TP -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_06b69.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_06b69.dir\\ /FS -c C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-g8hdrz\\src.cxx
+        FAILED: CMakeFiles/cmTC_06b69.dir/src.cxx.obj 
+        C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo /TP -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_06b69.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_06b69.dir\\ /FS -c C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-g8hdrz\\src.cxx
+        C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-g8hdrz\\src.cxx(1): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/cmake/Findasio.cmake:17 (find_package)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/CMakeLists.txt:74 (find_package)"
+    directories:
+      source: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-om1adn"
+      binary: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-om1adn"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:ARM64"
+      CMAKE_MODULE_PATH: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/crow-src/cmake"
+      VCPKG_INSTALLED_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "arm64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-om1adn'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -v cmTC_d23eb
+        [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /GR /EHsc -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_d23eb.dir\\CheckFunctionExists.cxx.obj /FdCMakeFiles\\cmTC_d23eb.dir\\ /FS -c C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-om1adn\\CheckFunctionExists.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_d23eb.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_d23eb.dir\\CheckFunctionExists.cxx.obj  /out:cmTC_d23eb.exe /implib:cmTC_d23eb.lib /pdb:cmTC_d23eb.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_d23eb.exe 
+        C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_d23eb.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_d23eb.dir\\CheckFunctionExists.cxx.obj  /out:cmTC_d23eb.exe /implib:cmTC_d23eb.lib /pdb:cmTC_d23eb.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_d23eb.dir\\CheckFunctionExists.cxx.obj /out:cmTC_d23eb.exe /implib:cmTC_d23eb.lib /pdb:cmTC_d23eb.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_d23eb.dir/intermediate.manifest CMakeFiles\\cmTC_d23eb.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib'\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/cmake/Findasio.cmake:17 (find_package)"
+      - "C:/Users/004ha/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)"
+      - "cmake-build-debug/_deps/crow-src/CMakeLists.txt:74 (find_package)"
+    directories:
+      source: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hsxmsz"
+      binary: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hsxmsz"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:ARM64"
+      CMAKE_MODULE_PATH: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/crow-src/cmake"
+      VCPKG_INSTALLED_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "arm64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hsxmsz'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -v cmTC_81645
+        [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /GR /EHsc -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_81645.dir\\CheckFunctionExists.cxx.obj /FdCMakeFiles\\cmTC_81645.dir\\ /FS -c C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hsxmsz\\CheckFunctionExists.cxx
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_81645.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_81645.dir\\CheckFunctionExists.cxx.obj  /out:cmTC_81645.exe /implib:cmTC_81645.lib /pdb:cmTC_81645.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_81645.exe 
+        C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_81645.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_81645.dir\\CheckFunctionExists.cxx.obj  /out:cmTC_81645.exe /implib:cmTC_81645.lib /pdb:cmTC_81645.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_81645.dir\\CheckFunctionExists.cxx.obj /out:cmTC_81645.exe /implib:cmTC_81645.lib /pdb:cmTC_81645.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_81645.dir/intermediate.manifest CMakeFiles\\cmTC_81645.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib'\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.43.34808/bin/Hostarm64/arm64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.43.34808 for ARM64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.43.34808.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/4.0.2/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1322 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Note: including file: C:\\Users\\004ha\\Documents\\Tenniss\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jug6q"
+      binary: "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jug6q"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:ARM64"
+      VCPKG_INSTALLED_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "arm64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/Users/004ha/.vcpkg-clion/vcpkg"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/004ha/Documents/Tenniss/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jug6q'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -v cmTC_6694c
+        [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_6694c.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_6694c.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2025.2.2\\bin\\cmake\\win\\aarch64\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_6694c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\arm64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1443~1.348\\bin\\HOSTAR~1\\arm64\\link.exe /nologo CMakeFiles\\cmTC_6694c.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_6694c.exe /implib:cmTC_6694c.lib /pdb:cmTC_6694c.pdb /version:0.0 /machine:ARM64 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/PROGRA~1/MICROS~4/2022/COMMUN~1/VC/Tools/MSVC/1443~1.348/bin/HOSTAR~1/arm64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Program Files/JetBrains/CLion 2025.2.2/bin/cmake/win/aarch64/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/PROGRA~1/MICROS~4/2022/COMMUN~1/VC/Tools/MSVC/1443~1.348/bin/HOSTAR~1/arm64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.43.34808.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...

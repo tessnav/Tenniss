@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/004ha/Documents/Tenniss/cmake-build-debug/cmake_install.cmake",
+		"C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/json-build/cmake_install.cmake",
+		"C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/crow-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

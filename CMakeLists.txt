@@ -52,7 +52,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Crow)
 
 # 5. Spustitelný soubor pouze s main.cpp
-add_executable(Tenniss main.cpp)
+add_executable(Tenniss main.cpp
+        player.cpp
+        player.h)
 
 # 6. Propojení všech knihoven
 target_link_libraries(Tenniss

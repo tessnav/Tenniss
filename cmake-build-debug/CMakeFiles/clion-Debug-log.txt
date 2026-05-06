@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2025.2.2\bin\cmake\win\aarch64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2025.2.2/bin/ninja/win/aarch64/ninja.exe" -DCMAKE_TOOLCHAIN_FILE=C:\Users\004ha\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -G Ninja -S C:\Users\004ha\Documents\Tenniss -B C:\Users\004ha\Documents\Tenniss\cmake-build-debug
+-- Using the multi-header code from C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/json-src/include/
+-- Configuring done (4.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/004ha/Documents/Tenniss/cmake-build-debug
