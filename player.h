@@ -22,7 +22,8 @@ private:
 public:
     // Defaultní konstruktor (nutný pro nlohmann_json, pokud bys přidával i vlastní)
     Player() = default;
-
+    Player(int id, std::string n, std::optional<int> e, int w, int gw, int gl, int t_id)
+        : player_id(id), name(n), elo(e), matches_won(w), games_won(gw), games_lost(gl), team_id(t_id) {}
     // Gettery pro tvůj řadící algoritmus (aby si mohl číst data, i když jsou private)
     int get_matches_won() const { return matches_won; }
     int get_games_won() const { return games_won; }

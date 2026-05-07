@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include "player.h"
+#include "loadPlayersFromDB.h"
 
 
 #define WIN32_LEAN_AND_MEAN
@@ -14,6 +15,10 @@
 #endif
 
 using namespace std;
+
+
+
+
 
 int main()
 {
@@ -44,7 +49,7 @@ int main()
         return crow::mustache::load("admin.html").render(ctx);
     });
 
-    CROW_ROUTE(app, "/api/results").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
+    CROW_ROUTE(app, "/api/setgame").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
 
             // 1. Zpracování JSONu z frontendu
             auto body = nlohmann::json::parse(req.body, nullptr, false);
@@ -83,8 +88,20 @@ int main()
             // --- B) Výpočet bodů za výhru ---
             int score_a = body["score_a"];
             int score_b = body["score_b"];
-            int points_a = (score_a > score_b) ? 1 : 0;
-            int points_b = (score_b > score_a) ? 1 : 0;
+
+            // Nová logika: 2 body za výhru, 1 za remízu, 0 za prohru
+            int points_a = 0;
+            int points_b = 0;
+
+            if (score_a > score_b) {
+                points_a = 2;
+            } else if (score_b > score_a) {
+                points_b = 2;
+            } else {
+                // Remíza
+                points_a = 1;
+                points_b = 1;
+            }
 
             // --- C) Pomocná lambda pro update hráče ---
             // Tohle udrží kód krásně čitelný
@@ -121,10 +138,9 @@ int main()
 
 
             // --- 2. Zde vytáhneš updatované hráče z DB do vektorů ---
-            std::vector<Player> teamA; //= /* ... */
-            std::vector<Player> teamB; //= /* ... */
+            auto [teamA, teamB] = loadPlayersFromDB();
 
-            // --- 3. TADY definuješ komparátor a provedeš řazení ---
+            // ŘAZENÍ: Použijeme tvého Švýcara
             auto swiss_comparator = [](const Player& a, const Player& b) {
                 if (a.get_matches_won() != b.get_matches_won()) return a.get_matches_won() > b.get_matches_won();
                 if (a.get_games_won() != b.get_games_won()) return a.get_games_won() > b.get_games_won();
@@ -135,11 +151,30 @@ int main()
             std::sort(teamA.begin(), teamA.end(), swiss_comparator);
             std::sort(teamB.begin(), teamB.end(), swiss_comparator);
 
-            // --- 4. Zde z poskládaných vektorů vygeneruješ nový JSON rozpis ---
+            // GENEROVÁNÍ: Vytvoříme JSON pro nové kolo
+            nlohmann::json new_round = nlohmann::json::array();
+            for (size_t i = 0; i < teamA.size() && i < teamB.size(); i += 2) {
+                new_round.push_back({
+                    {"court", (i / 2) + 1},
+                    {"teamA", {teamA[i].get_name(), teamA[i+1].get_name()}},
+                    {"teamB", {teamB[i].get_name(), teamB[i+1].get_name()}}
+                });
+            }
+
+            // Tady ten JSON 'new_round' můžeš třeba někam uložit nebo poslat zpět
+            return crow::response(200, new_round.dump());
+        });
+
+
+/*
+        CROW_ROUTE(app, "/api/setgame").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
+
 
             return crow::response(200, "OK");
         });
-
+        */
     app.loglevel(crow::LogLevel::Info);
     app.port(18080).multithreaded().run();
 }
+
+

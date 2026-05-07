@@ -21,7 +21,8 @@ FetchContent_Declare(
 FetchContent_GetProperties(sqlite3_amalgamation)
 if(NOT sqlite3_amalgamation_POPULATED)
     FetchContent_Populate(sqlite3_amalgamation)
-    add_library(sqlite3_lib STATIC ${sqlite3_amalgamation_SOURCE_DIR}/sqlite3.c)
+    add_library(sqlite3_lib STATIC ${sqlite3_amalgamation_SOURCE_DIR}/sqlite3.c
+            loadPlayersFromDB.h)
     target_include_directories(sqlite3_lib PUBLIC ${sqlite3_amalgamation_SOURCE_DIR})
     add_library(SQLite::SQLite3 ALIAS sqlite3_lib)
 endif()
