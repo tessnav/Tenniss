@@ -162,7 +162,7 @@
     document.getElementById('genBtn').addEventListener('click', async () => {
         const response = await fetch('/api/newround', { method: 'POST' });
         if(response.ok) {
-            window.location.href = '/matches';
+            window.location.reload();
         } else {
             alert('Chyba při generování kola. Máte dostatek hráčů?');
         }
