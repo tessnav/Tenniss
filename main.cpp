@@ -18,6 +18,9 @@ using namespace std;
 
 int main()
 {
+    // Řekni Crowu, že šablony jsou o úroveň výš
+    crow::mustache::set_base("templates");
+    
     crow::SimpleApp app;
 
     // when landing on page

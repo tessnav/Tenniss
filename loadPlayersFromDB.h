@@ -4,7 +4,7 @@
 
 #include <vector>
 #include <sqlite3.h>
-#include "Player.h"
+#include "player.h"
 #include <iostream>
 
 std::pair<std::vector<Player>, std::vector<Player>> loadPlayersFromDB() {

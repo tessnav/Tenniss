@@ -1,1 +1,13 @@
+# Překlady a binárky
+build/
+cmake-build-debug/
+*.o
+*.obj
+
+# Databáze (chceme jen schema.sql, ne data)
 *.db
+*.db-journal
+
+# Ostatní
+.idea/
+.vscode/

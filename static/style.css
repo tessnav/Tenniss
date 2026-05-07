@@ -1,3 +1,4 @@
+/* --- PROMĚNNÉ --- */
 :root {
     --primary: #d4ff00; /* Tenisová žlutá */
     --bg: #121212;
@@ -7,46 +8,77 @@
     --accent: #2c2c2c;
 }
 
+/* --- ZÁKLADNÍ RESET A BODY --- */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     margin: 0;
     padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Navigace */
+/* Speciální třída pro úvodní stránku bez scrollování */
+body.no-scroll {
+    height: 100vh;
+    overflow: hidden;
+    padding-bottom: 0;
+}
+
+/* --- NAVIGACE --- */
 nav {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     background: var(--card-bg);
-    padding: 15px 0;
+    padding: 10px 15px;
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 2px solid var(--accent);
+    gap: 10px;
+}
+
+.home-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    flex: 0 0 auto;
+    margin-right: auto;
 }
 
 .nav-btn {
     text-decoration: none;
     color: var(--text);
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 12px 15px;
     border-radius: 8px;
     transition: 0.3s;
     background: var(--accent);
-    flex: 0 1 40%;
     text-align: center;
+    font-size: 0.9rem;
+    flex: 1;
+    max-width: 150px;
 }
 
-.nav-btn:active { background: var(--primary); color: black; }
+.nav-btn:active, .nav-btn:hover {
+    background: var(--primary);
+    color: black;
+}
 
-/* Obsah */
+/* --- ROZLOŽENÍ OBSAHU --- */
 .container {
     padding: 20px;
     max-width: 1000px;
     margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Úprava pro index stránku */
+.no-scroll .container {
+    padding: 10px;
 }
 
 .hero {
@@ -54,9 +86,17 @@ nav {
     padding: 60px 20px;
 }
 
-h1 { color: var(--primary); font-size: 2.5rem; }
+.no-scroll .hero {
+    padding: 10px 20px;
+}
 
-/* Tabulky - Responzivita */
+h1 { 
+    color: var(--primary); 
+    font-size: 2.5rem; 
+    margin-top: 0;
+}
+
+/* --- TABULKY --- */
 .table-wrapper {
     overflow-x: auto;
     background: var(--card-bg);
@@ -67,7 +107,7 @@ h1 { color: var(--primary); font-size: 2.5rem; }
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px; /* Aby se na mobilu dalo skrolovat vpravo */
+    min-width: 600px;
 }
 
 th, td {
@@ -76,12 +116,49 @@ th, td {
     border-bottom: 1px solid var(--accent);
 }
 
-th { background: var(--accent); color: var(--primary); text-transform: uppercase; font-size: 0.8rem; }
+th { 
+    background: var(--accent); 
+    color: var(--primary); 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+}
 
-.score { font-weight: bold; color: var(--primary); text-align: center; }
+.score { 
+    font-weight: bold; 
+    color: var(--primary); 
+    text-align: center; 
+}
 
-/* Media Query pro Desktop */
+/* --- KOMPONENTY --- */
+.rotation-notice { 
+    display: none; 
+    text-align: center; 
+    margin-top: 40px; 
+    padding: 15px; 
+    background: var(--accent); 
+    border-radius: 10px; 
+    color: var(--primary); 
+    font-size: 0.9rem; 
+    border: 1px dashed var(--primary); 
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Desktop */
 @media (min-width: 768px) {
-    .nav-btn:hover { background: var(--primary); color: black; }
     h1 { font-size: 4rem; }
+}
+
+/* Mobil na šířku */
+@media (orientation: landscape) and (max-height: 500px) {
+    .nav-btn {
+        max-width: none;
+        font-size: 1.1rem;
+    }
+    .hero p { display: none; }
+}
+
+/* Mobil na výšku - doporučení rotace */
+@media (max-width: 768px) and (orientation: portrait) { 
+    .rotation-notice { display: block; } 
 }
