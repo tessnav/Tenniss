@@ -32,7 +32,7 @@ std::pair<std::vector<Player>, std::vector<Player>> loadPlayersFromDB() {
                 elo = sqlite3_column_int(stmt, 2);
             }
 
-            int m_won = sqlite3_column_int(stmt, 3);
+            double m_won = sqlite3_column_double(stmt, 3);
             int g_won = sqlite3_column_int(stmt, 4);
             int g_lost = sqlite3_column_int(stmt, 5);
             int t_id = sqlite3_column_int(stmt, 6);

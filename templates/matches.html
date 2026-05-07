@@ -18,23 +18,20 @@
         <table>
             <thead>
             <tr>
-                <th>Kolo</th>
-                <th>Hráč 1 (A)</th>
-                <th>Hráč 2 (A)</th>
-                <th class="score">Skóre</th>
-                <th>Hráč 3 (B)</th>
-                <th>Hráč 4 (B)</th>
+                <th>Tým A</th>
+                <th></th> <th class="score">Skóre</th>
+                <th>Tým B</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             {{#matches}}
             <tr>
-                <td>{{round}}</td>
-                <td>{{p1_a}}</td>
-                <td>{{p2_a}}</td>
+                <td><strong>{{p1_a}}</strong></td>
+                <td><strong>{{p2_a}}</strong></td>
                 <td class="score">{{score_a}} : {{score_b}}</td>
-                <td>{{p1_b}}</td>
-                <td>{{p2_b}}</td>
+                <td><strong>{{p1_b}}</strong></td>
+                <td><strong>{{p2_b}}</strong></td>
             </tr>
             {{/matches}}
             </tbody>

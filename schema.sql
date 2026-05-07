@@ -13,7 +13,7 @@ CREATE TABLE players (
                          player_id INTEGER PRIMARY KEY AUTOINCREMENT,
                          name TEXT UNIQUE NOT NULL,
                          elo INTEGER, -- Může být NULL
-                         matches_won INTEGER DEFAULT 0,
+                         matches_won REAL DEFAULT 0.0,
                          games_won INTEGER DEFAULT 0,
                          games_lost INTEGER DEFAULT 0,
                          team_id INTEGER NOT NULL,
