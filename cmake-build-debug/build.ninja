@@ -58,27 +58,6 @@ build CMakeFiles\sqlite3_lib.dir\_deps\sqlite3_amalgamation-src\sqlite3.c.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\sqlite3_lib.dir\sqlite3_lib.pdb
   TARGET_PDB = sqlite3_lib.pdb
 
-build CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.ddi: CXX_SCAN__sqlite3_lib_Debug C$:\Users\004ha\Documents\Tenniss\templates\loadPlayersFromDB.cpp || cmake_object_order_depends_target_sqlite3_lib
-  DEP_FILE = CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.ddi
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi
-  INCLUDES = -IC:\Users\004ha\Documents\Tenniss\cmake-build-debug\_deps\sqlite3_amalgamation-src
-  OBJ_FILE = CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.ddi.i
-
-build CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj: CXX_COMPILER__sqlite3_lib_scanned_Debug C$:\Users\004ha\Documents\Tenniss\templates\loadPlayersFromDB.cpp | CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.modmap || cmake_object_order_depends_target_sqlite3_lib CMakeFiles\sqlite3_lib.dir\CXX.dd
-  CONFIG = Debug
-  DYNDEP_MODULE_MAP_FILE = CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.modmap
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi
-  INCLUDES = -IC:\Users\004ha\Documents\Tenniss\cmake-build-debug\_deps\sqlite3_amalgamation-src
-  OBJECT_DIR = CMakeFiles\sqlite3_lib.dir
-  OBJECT_FILE_DIR = CMakeFiles\sqlite3_lib.dir\templates
-  TARGET_COMPILE_PDB = CMakeFiles\sqlite3_lib.dir\sqlite3_lib.pdb
-  TARGET_PDB = sqlite3_lib.pdb
-  dyndep = CMakeFiles/sqlite3_lib.dir/CXX.dd
-
-build CMakeFiles\sqlite3_lib.dir\CXX.dd | C$:\Users\004ha\Documents\Tenniss\cmake-build-debug\CMakeFiles\sqlite3_lib.dir\CXXModules.json CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.modmap: CXX_DYNDEP__sqlite3_lib_Debug CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj.ddi | C$:\Users\004ha\Documents\Tenniss\cmake-build-debug\CMakeFiles\sqlite3_lib.dir\CXXDependInfo.json
-
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target sqlite3_lib
@@ -87,9 +66,9 @@ build CMakeFiles\sqlite3_lib.dir\CXX.dd | C$:\Users\004ha\Documents\Tenniss\cmak
 #############################################
 # Link the static library sqlite3_lib.lib
 
-build sqlite3_lib.lib: CXX_STATIC_LIBRARY_LINKER__sqlite3_lib_Debug CMakeFiles\sqlite3_lib.dir\_deps\sqlite3_amalgamation-src\sqlite3.c.obj CMakeFiles\sqlite3_lib.dir\templates\loadPlayersFromDB.cpp.obj
+build sqlite3_lib.lib: C_STATIC_LIBRARY_LINKER__sqlite3_lib_Debug CMakeFiles\sqlite3_lib.dir\_deps\sqlite3_amalgamation-src\sqlite3.c.obj
   CONFIG = Debug
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd -Zi
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -MDd -Zi
   LINK_FLAGS = /machine:ARM64
   OBJECT_DIR = CMakeFiles\sqlite3_lib.dir
   POST_BUILD = cd .

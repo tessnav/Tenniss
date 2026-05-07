@@ -75,34 +75,6 @@
 			[
 				0
 			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "C:/Users/004ha/Documents/Tenniss/cmake-build-debug/_deps/sqlite3_amalgamation-src"
-				}
-			],
-			"language" : "CXX",
-			"languageStandard" : 
-			{
-				"backtraces" : 
-				[
-					2
-				],
-				"standard" : "20"
-			},
-			"sourceIndexes" : 
-			[
-				1
-			]
 		}
 	],
 	"id" : "sqlite3_lib::@6890427a1f51a3e7e1df",
@@ -119,7 +91,13 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
 				1
 			]
 		}
@@ -134,9 +112,8 @@
 		},
 		{
 			"backtrace" : 2,
-			"compileGroupIndex" : 1,
-			"path" : "templates/loadPlayersFromDB.cpp",
-			"sourceGroupIndex" : 0
+			"path" : "loadPlayersFromDB.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

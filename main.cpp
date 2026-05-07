@@ -16,10 +16,6 @@
 
 using namespace std;
 
-
-
-
-
 int main()
 {
     crow::SimpleApp app;
@@ -49,7 +45,7 @@ int main()
         return crow::mustache::load("admin.html").render(ctx);
     });
 
-    CROW_ROUTE(app, "/api/setgame").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
+    CROW_ROUTE(app, "/api/newround").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
 
             // 1. Zpracování JSONu z frontendu
             auto body = nlohmann::json::parse(req.body, nullptr, false);
@@ -165,14 +161,6 @@ int main()
             return crow::response(200, new_round.dump());
         });
 
-
-/*
-        CROW_ROUTE(app, "/api/setgame").methods(crow::HTTPMethod::Post)([](const crow::request& req) {
-
-
-            return crow::response(200, "OK");
-        });
-        */
     app.loglevel(crow::LogLevel::Info);
     app.port(18080).multithreaded().run();
 }
