@@ -134,10 +134,19 @@
     		                       style="width: 45px; padding: 5px; background: var(--bg); color: #00d4ff; border: 1px solid var(--accent); border-radius: 4px; text-align: center; font-weight: bold;">
     		            </form>
     		        </td>
+					
     		        <td style="text-align: right; padding-right: 15px;">
     		            <button type="submit" form="score-form-{{id}}" class="nav-btn" style="padding: 5px 15px; font-size: 0.8rem; background: var(--accent); max-width: none;">
     		                Uložit
     		            </button>
+						<div style="display: inline-block; width: 25px; vertical-align: middle;">
+							{{#is_played}}
+								<span title="Výsledek uložen" style="color: #4CAF50; font-size: 1.2rem; font-weight: bold;">✓</span>
+							{{/is_played}}
+							{{^is_played}}
+								<span title="Čeká na výsledek" style="color: #ff9800; font-size: 1.2rem; opacity: 0.5;">○</span>
+							{{/is_played}}
+						</div>
     		        </td>
     		    </tr>
     		    {{/active_matches}}

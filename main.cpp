@@ -68,8 +68,14 @@ int main()
                 m["p2a"] = (const char*)sqlite3_column_text(stmt, 2);
                 m["p1b"] = (const char*)sqlite3_column_text(stmt, 3);
                 m["p2b"] = (const char*)sqlite3_column_text(stmt, 4);
-                m["s_a"] = sqlite3_column_int(stmt, 5);
-                m["s_b"] = sqlite3_column_int(stmt, 6);
+                int sa = sqlite3_column_int(stmt, 5);
+                int sb = sqlite3_column_int(stmt, 6);
+                m["s_a"] = sa;
+                m["s_b"] = sb;
+                
+                // Příznak pro zobrazení fajfky: pokud je zadaný výsledek
+                m["is_played"] = (sa + sb > 0); 
+                
                 matches_list.push_back(std::move(m));
             }
         }
@@ -162,11 +168,6 @@ int main()
         return crow::mustache::load("players.html").render(ctx);
     });
 
-    // CROW_ROUTE(app, "/admin")
-    // ([](){
-    //     crow::mustache::context ctx;
-    //     return crow::mustache::load("admin.html").render(ctx);
-    // });
 
     // --- API PRO PŘIDÁNÍ HRÁČE ---
     CROW_ROUTE(app, "/api/add_player").methods(crow::HTTPMethod::Post)
@@ -499,7 +500,7 @@ int main()
     });
 
     app.loglevel(crow::LogLevel::Info);
-    app.port(18080).multithreaded().run();
+    app.port(18060).multithreaded().run();
 }
 
 void initDatabase() {
@@ -511,7 +512,7 @@ void initDatabase() {
         sqlite3_exec(db, "PRAGMA foreign_keys = ON;", nullptr, nullptr, nullptr);
 
         // 2. Načteme schema.sql ze souboru
-        std::ifstream file("../schema.sql"); // Cesta k tvému schématu
+        std::ifstream file("schema.sql"); // Cesta k tvému schématu
         if (!file.is_open()) {
             std::cerr << "Chyba: Nelze najít schema.sql!" << std::endl;
             sqlite3_close(db);
