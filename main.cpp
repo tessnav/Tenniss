@@ -15,6 +15,7 @@
 #ifdef _WIN32
     #include <windows.h>
 #endif
+#include <set>
 
 using namespace std;
 
@@ -208,48 +209,92 @@ int main()
 
     CROW_ROUTE(app, "/api/newround").methods(crow::HTTPMethod::Post)
     ([]() {
-        // 1. Načtení hráčů z DB
         auto [teamA, teamB] = loadPlayersFromDB();
     
-        // 2. Definice řazení (Švýcarský systém)
-        auto swiss_comparator = [](const Player& a, const Player& b) {
-            // 1. Body (výhry/remízy)
-            if (a.get_matches_won() != b.get_matches_won()) 
-                return a.get_matches_won() > b.get_matches_won();
-            // 2. Rozdíl gamů
-            if (a.get_diff() != b.get_diff()) 
-                return a.get_diff() > b.get_diff();
-            // 3. Celkové vyhrané gamy
-            return a.get_games_won() > b.get_games_won();
-        };
-    
-        // Seřadíme oba týmy
-        std::sort(teamA.begin(), teamA.end(), swiss_comparator);
-        std::sort(teamB.begin(), teamB.end(), swiss_comparator);
-    
-        // 3. Propojení do zápasů a zápis do DB
+        // 1. NAČTENÍ HISTORIE DVOJIC Z DB
         sqlite3* db;
         sqlite3_open("turnaj.db", &db);
         
-        const char* sql = "INSERT INTO matches (p1_a_id, p2_a_id, p1_b_id, p2_b_id, score_a, score_b) VALUES (?, ?, ?, ?, 0, 0);";
-        
-        // Spárujeme: 1. s 2. proti 1. s 2., pak 3. s 4. proti 3. s 4. atd.
-        for (size_t i = 0; i + 1 < teamA.size() && i + 1 < teamB.size(); i += 2) {
+        std::set<std::pair<int, int>> history; // Uložíme ID dvojic (vždy menší ID první)
+        const char* hist_sql = "SELECT p1_a_id, p2_a_id, p1_b_id, p2_b_id FROM matches;";
+        sqlite3_stmt* h_stmt;
+        if (sqlite3_prepare_v2(db, hist_sql, -1, &h_stmt, nullptr) == SQLITE_OK) {
+            while (sqlite3_step(h_stmt) == SQLITE_ROW) {
+                int a1 = sqlite3_column_int(h_stmt, 0), a2 = sqlite3_column_int(h_stmt, 1);
+                int b1 = sqlite3_column_int(h_stmt, 2), b2 = sqlite3_column_int(h_stmt, 3);
+                history.insert({std::min(a1, a2), std::max(a1, a2)});
+                history.insert({std::min(b1, b2), std::max(b1, b2)});
+            }
+        }
+        sqlite3_finalize(h_stmt);
+    
+        // 2. SEŘAZENÍ HRÁČŮ PODLE ÚSPĚŠNOSTI (Švýcar)
+        auto swiss_comparator = [](const Player& a, const Player& b) {
+            if (a.get_matches_won() != b.get_matches_won()) return a.get_matches_won() > b.get_matches_won();
+            if (a.get_diff() != b.get_diff()) return a.get_diff() > b.get_diff();
+            return a.get_games_won() > b.get_games_won();
+        };
+        std::sort(teamA.begin(), teamA.end(), swiss_comparator);
+        std::sort(teamB.begin(), teamB.end(), swiss_comparator);
+    
+        // 3. LOGIKA PRO PÁROVÁNÍ BEZ OPAKOVÁNÍ
+        auto find_pairs = [&](std::vector<Player>& players) {
+            std::vector<std::pair<int, int>> new_pairs;
+            std::set<int> used;
+            
+            for (size_t i = 0; i < players.size(); ++i) {
+                if (used.count(players[i].get_id())) continue;
+            
+                // Pro hráče i hledáme nejlepšího parťáka j
+                bool found = false;
+                for (size_t j = i + 1; j < players.size(); ++j) {
+                    if (used.count(players[j].get_id())) continue;
+                
+                    int p1 = std::min(players[i].get_id(), players[j].get_id());
+                    int p2 = std::max(players[i].get_id(), players[j].get_id());
+                
+                    if (history.find({p1, p2}) == history.end()) {
+                        new_pairs.push_back({players[i].get_id(), players[j].get_id()});
+                        used.insert(players[i].get_id());
+                        used.insert(players[j].get_id());
+                        found = true;
+                        break;
+                    }
+                }
+                // Pokud jsme nenašli nikoho, s kým ještě nehrál (všechny kombinace vyčerpány),
+                // vezmeme prostě prvního volného (nouzovka)
+                if (!found) {
+                    for (size_t j = i + 1; j < players.size(); ++j) {
+                        if (!used.count(players[j].get_id())) {
+                            new_pairs.push_back({players[i].get_id(), players[j].get_id()});
+                            used.insert(players[i].get_id());
+                            used.insert(players[j].get_id());
+                            break;
+                        }
+                    }
+                }
+            }
+            return new_pairs;
+        };
+    
+        auto pairsA = find_pairs(teamA);
+        auto pairsB = find_pairs(teamB);
+    
+        // 4. ZÁPIS DO DATABÁZE
+        const char* ins_sql = "INSERT INTO matches (p1_a_id, p2_a_id, p1_b_id, p2_b_id, score_a, score_b) VALUES (?, ?, ?, ?, 0, 0);";
+        for (size_t i = 0; i < std::min(pairsA.size(), pairsB.size()); ++i) {
             sqlite3_stmt* stmt;
-            sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
-            
-            sqlite3_bind_int(stmt, 1, teamA[i].get_id());   // Nejlepší z A
-            sqlite3_bind_int(stmt, 2, teamA[i+1].get_id()); // Druhý nejlepší z A
-            sqlite3_bind_int(stmt, 3, teamB[i].get_id());   // Nejlepší z B
-            sqlite3_bind_int(stmt, 4, teamB[i+1].get_id()); // Druhý nejlepší z B
-            
+            sqlite3_prepare_v2(db, ins_sql, -1, &stmt, nullptr);
+            sqlite3_bind_int(stmt, 1, pairsA[i].first);
+            sqlite3_bind_int(stmt, 2, pairsA[i].second);
+            sqlite3_bind_int(stmt, 3, pairsB[i].first);
+            sqlite3_bind_int(stmt, 4, pairsB[i].second);
             sqlite3_step(stmt);
             sqlite3_finalize(stmt);
         }
     
         sqlite3_close(db);
-    
-        return crow::response(200, "Zápasy vygenerovány");
+        return crow::response(200, "Nové zápasy vygenerovány bez duplicitních týmů.");
     });
 
     CROW_ROUTE(app, "/api/add_match").methods(crow::HTTPMethod::Post)
