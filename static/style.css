@@ -1,6 +1,6 @@
-/* --- PROMĚNNÉ --- */
+/* --- VARIABLES --- */
 :root {
-    --primary: #d4ff00; /* Tenisová žlutá */
+    --primary: #d4ff00;
     --bg: #121212;
     --card-bg: #1e1e1e;
     --text: #ffffff;
@@ -8,7 +8,6 @@
     --accent: #2c2c2c;
 }
 
-/* --- ZÁKLADNÍ RESET A BODY --- */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
@@ -20,14 +19,14 @@ body {
     min-height: 100vh;
 }
 
-/* Speciální třída pro úvodní stránku bez scrollování */
+/* class for no-scroll index page */
 body.no-scroll {
     height: 100vh;
     overflow: hidden;
     padding-bottom: 0;
 }
 
-/* --- NAVIGACE --- */
+/* --- NAVIGATION --- */
 nav {
     display: flex;
     align-items: center;
@@ -67,7 +66,7 @@ nav {
     color: black;
 }
 
-/* --- ROZLOŽENÍ OBSAHU --- */
+/* --- CONTENT LAYOUT --- */
 .container {
     padding: 20px;
     max-width: 1000px;
@@ -76,7 +75,7 @@ nav {
     box-sizing: border-box;
 }
 
-/* Úprava pro index stránku */
+/* index page */
 .no-scroll .container {
     padding: 10px;
 }
@@ -96,7 +95,7 @@ h1 {
     margin-top: 0;
 }
 
-/* --- TABULKY --- */
+/* --- TABLES --- */
 .table-wrapper {
     overflow-x: auto;
     background: var(--card-bg);
@@ -129,7 +128,7 @@ th {
     text-align: center; 
 }
 
-/* --- KOMPONENTY --- */
+/* --- COMPONENTS --- */
 .rotation-notice { 
     display: none; 
     text-align: center; 
@@ -149,7 +148,7 @@ th {
     h1 { font-size: 4rem; }
 }
 
-/* Mobil na šířku */
+/* Phone in landscape mode */
 @media (orientation: landscape) and (max-height: 500px) {
     .nav-btn {
         max-width: none;
@@ -158,7 +157,7 @@ th {
     .hero p { display: none; }
 }
 
-/* Mobil na výšku - doporučení rotace */
+/* Phone in portrait mode - rotation notice */
 @media (max-width: 768px) and (orientation: portrait) { 
     .rotation-notice { display: block; } 
 }
